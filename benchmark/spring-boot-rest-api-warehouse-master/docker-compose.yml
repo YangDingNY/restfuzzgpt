@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: warehouse
+    volumes:
+      - "./mysql/data:/var/lib/mysql"
+      - "./mysql/conf.d:/etc/mysql/conf.d"
+      - "./mysql/initdb.d:/docker-entrypoint-initdb.d"
+    networks:
+      - warehouse-network
+  warehouse:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      network: host
+    container_name: warehouse
+    ports:
+      - "8080:8080"
+    networks:
+      - warehouse-network
+    depends_on:
+      - mysql
+
+networks:
+  warehouse-network:
+    name: warehouse-network

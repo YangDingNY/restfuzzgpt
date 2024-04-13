@@ -12,6 +12,9 @@ COPY ../settings.xml /usr/share/maven/conf/settings.xml
 # clone project version:1.5.0
 RUN git clone -b 1.5.0 --single-branch https://github.com/corona-warn-app/cwa-verification-server.git /root/cwa
 
+# replace pom.xml
+COPY ./pom.xml /root/cwa/pom.xml
+
 # build project
 WORKDIR /root/cwa
 RUN mvn clean package -DskipTests

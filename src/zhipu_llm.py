@@ -1,6 +1,6 @@
 from zhipuai import ZhipuAI
 import os
-import messages.initMessage as initMessage
+import prompts.initPrompt as initPrompt
 import sendRequests
 
 # init the zhipuAI client
@@ -15,8 +15,8 @@ while True:
     testCasesCount += 1
     # init the messages
     _messages = []
-    _initmessage = initMessage.getMessage("E:\\y1\\api test\\code\\requests-send\\swagger_blog.txt")
-    _messages.append({"role": "user", "content": _initmessage})
+    _initprompt = initPrompt.getMessage("E:\\y1\\api test\\code\\requests-send\\swagger_blog.txt")
+    _messages.append({"role": "user", "content": _initprompt})
     while True:   
         response = client.chat.completions.create(
             model = "glm-4",

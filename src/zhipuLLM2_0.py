@@ -1,5 +1,6 @@
 from zhipuai import ZhipuAI
 import os
+import sys
 import prompts.initPrompt as initPrompt
 import prompts.tsGenPrompt as tsGenPrompt
 import prompts.reqGenPrompt as reqGenPrompt
@@ -9,9 +10,16 @@ import sendRequests
 key = os.environ.get('ZHIPUAI_APIKEY')
 client = ZhipuAI(api_key = key)
 
+# get the swagger file path
+if len(sys.argv) < 2:
+    print("Please provide the path of the swagger file.")
+    sys.exit(1)
+swaggerFilePath = sys.argv[1]
+print(f"Swagger File Path: {swaggerFilePath}")
+
 # init the messages
 messages = [
-    {"role": "user", "content": initPrompt.getInitPrompt("E:\\y1\\api test\\code\\requests-send\\swagger_blog.txt")},
+    {"role": "user", "content": initPrompt.getInitPrompt(swaggerFilePath)},
     {"role":"assistant","content":"understand"}
 ]
 

@@ -1,1 +1,1665 @@
-{"swagger":"2.0","info":{"description":"Api Documentation","version":"1.0","title":"Api Documentation","termsOfService":"urn:tos","contact":{},"license":{"name":"Apache 2.0","url":"http://www.apache.org/licenses/LICENSE-2.0"}},"host":"localhost:8080","basePath":"/wh","tags":[{"name":"ware-transaction-controller","description":"Ware Transaction Controller"},{"name":"product-controller","description":"Product Controller"},{"name":"shelf-controller","description":"Shelf Controller"},{"name":"warehouse-controller","description":"Warehouse Controller"},{"name":"stock-clerk-controller","description":"Stock Clerk Controller"},{"name":"stock-controller","description":"Stock Controller"},{"name":"ware-transaction-detail-controller","description":"Ware Transaction Detail Controller"}],"paths":{"/clerks":{"get":{"tags":["stock-clerk-controller"],"summary":"findAll","operationId":"findAllUsingGET_2","consumes":["application/json"],"produces":["*/*"],"responses":{"200":{"description":"OK","schema":{"type":"array","items":{"$ref":"#/definitions/StockClerkDto"}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"post":{"tags":["stock-clerk-controller"],"summary":"save","operationId":"saveUsingPOST_2","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"stockClerkDto","description":"stockClerkDto","required":true,"schema":{"$ref":"#/definitions/StockClerkDto"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/StockClerkDto"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"put":{"tags":["stock-clerk-controller"],"summary":"update","operationId":"updateUsingPUT_2","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"stockClerkDto","description":"stockClerkDto","required":true,"schema":{"$ref":"#/definitions/StockClerkDto"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/StockClerkDto"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}},"/clerks/{id}":{"get":{"tags":["stock-clerk-controller"],"summary":"findById","operationId":"findByIdUsingGET_2","consumes":["application/json"],"produces":["*/*"],"parameters":[{"name":"id","in":"path","description":"id","required":true,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/StockClerkDto"}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"delete":{"tags":["stock-clerk-controller"],"summary":"deleteById","operationId":"deleteByIdUsingDELETE_2","consumes":["application/json"],"produces":["*/*"],"parameters":[{"name":"id","in":"path","description":"id","required":true,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK"},"204":{"description":"No Content"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"}}}},"/products":{"get":{"tags":["product-controller"],"summary":"findAll","operationId":"findAllUsingGET","consumes":["application/json"],"produces":["*/*"],"responses":{"200":{"description":"OK","schema":{"type":"array","items":{"$ref":"#/definitions/ProductDto"}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"post":{"tags":["product-controller"],"summary":"save","operationId":"saveUsingPOST","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"productDto","description":"productDto","required":true,"schema":{"$ref":"#/definitions/ProductDto"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ProductDto"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"put":{"tags":["product-controller"],"summary":"update","operationId":"updateUsingPUT","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"productDto","description":"productDto","required":true,"schema":{"$ref":"#/definitions/ProductDto"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ProductDto"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}},"/products/search":{"post":{"tags":["product-controller"],"summary":"search","operationId":"searchUsingPOST","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"searchRequest","description":"searchRequest","required":true,"schema":{"$ref":"#/definitions/SearchRequest"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Page«ProductDto»"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}},"/products/{id}":{"get":{"tags":["product-controller"],"summary":"findById","operationId":"findByIdUsingGET","consumes":["application/json"],"produces":["*/*"],"parameters":[{"name":"id","in":"path","description":"id","required":true,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ProductDto"}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"delete":{"tags":["product-controller"],"summary":"deleteById","operationId":"deleteByIdUsingDELETE","consumes":["application/json"],"produces":["*/*"],"parameters":[{"name":"id","in":"path","description":"id","required":true,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK"},"204":{"description":"No Content"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"}}}},"/shelves":{"get":{"tags":["shelf-controller"],"summary":"findAll","operationId":"findAllUsingGET_1","consumes":["application/json"],"produces":["*/*"],"responses":{"200":{"description":"OK","schema":{"type":"array","items":{"$ref":"#/definitions/ShelfDto"}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"post":{"tags":["shelf-controller"],"summary":"save","operationId":"saveUsingPOST_1","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"shelfDto","description":"shelfDto","required":true,"schema":{"$ref":"#/definitions/ShelfDto"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ShelfDto"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"put":{"tags":["shelf-controller"],"summary":"update","operationId":"updateUsingPUT_1","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"shelfDto","description":"shelfDto","required":true,"schema":{"$ref":"#/definitions/ShelfDto"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ShelfDto"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}},"/shelves/{id}":{"get":{"tags":["shelf-controller"],"summary":"findById","operationId":"findByIdUsingGET_1","consumes":["application/json"],"produces":["*/*"],"parameters":[{"name":"id","in":"path","description":"id","required":true,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ShelfDto"}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"delete":{"tags":["shelf-controller"],"summary":"deleteById","operationId":"deleteByIdUsingDELETE_1","consumes":["application/json"],"produces":["*/*"],"parameters":[{"name":"id","in":"path","description":"id","required":true,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK"},"204":{"description":"No Content"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"}}}},"/stock":{"get":{"tags":["stock-controller"],"summary":"findAll","operationId":"findAllUsingGET_3","consumes":["application/json"],"produces":["*/*"],"responses":{"200":{"description":"OK","schema":{"type":"array","items":{"$ref":"#/definitions/StockDto"}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}},"/stock/search":{"post":{"tags":["stock-controller"],"summary":"search","operationId":"searchUsingPOST_1","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"searchRequest","description":"searchRequest","required":true,"schema":{"$ref":"#/definitions/SearchRequest"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Page«StockDto»"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}},"/stock/snapshot":{"get":{"tags":["stock-controller"],"summary":"findStockByProductAndDateTime","operationId":"findStockByProductAndDateTimeUsingGET","consumes":["application/json"],"produces":["*/*"],"parameters":[{"name":"productCode","in":"query","description":"productCode","required":true,"type":"string"},{"name":"date","in":"query","description":"date","required":true,"type":"string","format":"date-time"}],"responses":{"200":{"description":"OK","schema":{"type":"array","items":{"$ref":"#/definitions/StockProjection"}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}},"/ware-transaction-details":{"get":{"tags":["ware-transaction-detail-controller"],"summary":"findByWareTransactionId","operationId":"findByWareTransactionIdUsingGET","consumes":["application/json"],"produces":["*/*"],"parameters":[{"name":"wareTransactionId","in":"query","description":"wareTransactionId","required":true,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK","schema":{"type":"array","items":{"$ref":"#/definitions/WareTransactionDetailDto"}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}},"/ware-transaction-details/{id}":{"get":{"tags":["ware-transaction-detail-controller"],"summary":"findById","operationId":"findByIdUsingGET_4","consumes":["application/json"],"produces":["*/*"],"parameters":[{"name":"id","in":"path","description":"id","required":true,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/WareTransactionDetailDto"}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}},"/ware-transactions":{"get":{"tags":["ware-transaction-controller"],"summary":"findAll","operationId":"findAllUsingGET_4","consumes":["application/json"],"produces":["*/*"],"responses":{"200":{"description":"OK","schema":{"type":"array","items":{"$ref":"#/definitions/WareTransactionDto"}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"post":{"tags":["ware-transaction-controller"],"summary":"save","operationId":"saveUsingPOST_3","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"wareTransactionDto","description":"wareTransactionDto","required":true,"schema":{"$ref":"#/definitions/WareTransactionDto"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/WareTransactionDto"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"put":{"tags":["ware-transaction-controller"],"summary":"update","operationId":"updateUsingPUT_3","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"wareTransactionDto","description":"wareTransactionDto","required":true,"schema":{"$ref":"#/definitions/WareTransactionDto"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/WareTransactionDto"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}},"/ware-transactions/{id}":{"get":{"tags":["ware-transaction-controller"],"summary":"findById","operationId":"findByIdUsingGET_3","consumes":["application/json"],"produces":["*/*"],"parameters":[{"name":"id","in":"path","description":"id","required":true,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/WareTransactionDto"}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"delete":{"tags":["ware-transaction-controller"],"summary":"deleteById","operationId":"deleteByIdUsingDELETE_3","consumes":["application/json"],"produces":["*/*"],"parameters":[{"name":"id","in":"path","description":"id","required":true,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK"},"204":{"description":"No Content"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"}}}},"/warehouses":{"get":{"tags":["warehouse-controller"],"summary":"findAll","operationId":"findAllUsingGET_5","consumes":["application/json"],"produces":["*/*"],"responses":{"200":{"description":"OK","schema":{"type":"array","items":{"$ref":"#/definitions/WarehouseDto"}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"post":{"tags":["warehouse-controller"],"summary":"save","operationId":"saveUsingPOST_4","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"warehouseDto","description":"warehouseDto","required":true,"schema":{"$ref":"#/definitions/WarehouseDto"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/WarehouseDto"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"put":{"tags":["warehouse-controller"],"summary":"update","operationId":"updateUsingPUT_4","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"warehouseDto","description":"warehouseDto","required":true,"schema":{"$ref":"#/definitions/WarehouseDto"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/WarehouseDto"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}},"/warehouses/{id}":{"get":{"tags":["warehouse-controller"],"summary":"findById","operationId":"findByIdUsingGET_5","consumes":["application/json"],"produces":["*/*"],"parameters":[{"name":"id","in":"path","description":"id","required":true,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/WarehouseDto"}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"delete":{"tags":["warehouse-controller"],"summary":"deleteById","operationId":"deleteByIdUsingDELETE_4","consumes":["application/json"],"produces":["*/*"],"parameters":[{"name":"id","in":"path","description":"id","required":true,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK"},"204":{"description":"No Content"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"}}}}},"definitions":{"Pageable":{"type":"object","properties":{"offset":{"type":"integer","format":"int64"},"pageNumber":{"type":"integer","format":"int32"},"pageSize":{"type":"integer","format":"int32"},"paged":{"type":"boolean"},"sort":{"$ref":"#/definitions/Sort"},"unpaged":{"type":"boolean"}}},"Page«ProductDto»":{"type":"object","properties":{"content":{"type":"array","items":{"$ref":"#/definitions/ProductDto"}},"empty":{"type":"boolean"},"first":{"type":"boolean"},"last":{"type":"boolean"},"number":{"type":"integer","format":"int32"},"numberOfElements":{"type":"integer","format":"int32"},"pageable":{"$ref":"#/definitions/Pageable"},"size":{"type":"integer","format":"int32"},"sort":{"$ref":"#/definitions/Sort"},"totalElements":{"type":"integer","format":"int64"},"totalPages":{"type":"integer","format":"int32"}}},"Page«StockDto»":{"type":"object","properties":{"content":{"type":"array","items":{"$ref":"#/definitions/StockDto"}},"empty":{"type":"boolean"},"first":{"type":"boolean"},"last":{"type":"boolean"},"number":{"type":"integer","format":"int32"},"numberOfElements":{"type":"integer","format":"int32"},"pageable":{"$ref":"#/definitions/Pageable"},"size":{"type":"integer","format":"int32"},"sort":{"$ref":"#/definitions/Sort"},"totalElements":{"type":"integer","format":"int64"},"totalPages":{"type":"integer","format":"int32"}}},"ProductDto":{"type":"object","properties":{"code":{"type":"string"},"description":{"type":"string"},"id":{"type":"integer","format":"int64"},"measurementUnit":{"type":"string","enum":["KG"]}}},"SearchRequest":{"type":"object","properties":{"orderAsc":{"type":"boolean"},"orderBy":{"type":"string"},"pageIndex":{"type":"integer","format":"int32"},"pageSize":{"type":"integer","format":"int32"},"paginated":{"type":"boolean"},"searchCriteriaString":{"type":"string"}}},"ShelfDto":{"type":"object","properties":{"code":{"type":"string"},"id":{"type":"integer","format":"int64"},"warehouseId":{"type":"integer","format":"int64"}}},"Sort":{"type":"object","properties":{"empty":{"type":"boolean"},"sorted":{"type":"boolean"},"unsorted":{"type":"boolean"}}},"StockClerkDto":{"type":"object","properties":{"firstName":{"type":"string"},"id":{"type":"integer","format":"int64"},"lastName":{"type":"string"},"registryNumber":{"type":"string"}}},"StockDto":{"type":"object","properties":{"id":{"type":"string"},"productCode":{"type":"string"},"productId":{"type":"integer","format":"int64"},"shelfCode":{"type":"string"},"shelfId":{"type":"integer","format":"int64"},"totalQuantity":{"type":"integer","format":"int64"},"warehouseDescription":{"type":"string"},"warehouseId":{"type":"integer","format":"int64"}}},"StockProjection":{"type":"object","properties":{"productCode":{"type":"string"},"shelfCode":{"type":"string"},"totalQuantity":{"type":"integer","format":"int64"},"warehouseDescription":{"type":"string"}}},"WareTransactionDetailDto":{"type":"object","properties":{"id":{"type":"integer","format":"int64"},"productId":{"type":"integer","format":"int64"},"quantity":{"type":"integer","format":"int64"},"shelfId":{"type":"integer","format":"int64"},"wareTransactionId":{"type":"integer","format":"int64"}}},"WareTransactionDto":{"type":"object","properties":{"description":{"type":"string"},"id":{"type":"integer","format":"int64"},"stockClerkId":{"type":"integer","format":"int64"},"transactionDate":{"type":"string","format":"date-time"},"wareTransactionDetails":{"type":"array","items":{"$ref":"#/definitions/WareTransactionDetailDto"}},"wareTransactionType":{"type":"string","enum":["IMPORT","EXPORT"]}}},"WarehouseDto":{"type":"object","properties":{"description":{"type":"string"},"id":{"type":"integer","format":"int64"},"shelves":{"type":"array","items":{"$ref":"#/definitions/ShelfDto"}}}}}}
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Api Documentation",
+        "version": "1.0",
+        "title": "Api Documentation",
+        "termsOfService": "urn:tos",
+        "contact": {},
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0"
+        }
+    },
+    "host": "localhost:8080",
+    "basePath": "/wh",
+    "tags": [
+        {
+            "name": "ware-transaction-controller",
+            "description": "Ware Transaction Controller"
+        },
+        {
+            "name": "product-controller",
+            "description": "Product Controller"
+        },
+        {
+            "name": "shelf-controller",
+            "description": "Shelf Controller"
+        },
+        {
+            "name": "warehouse-controller",
+            "description": "Warehouse Controller"
+        },
+        {
+            "name": "stock-clerk-controller",
+            "description": "Stock Clerk Controller"
+        },
+        {
+            "name": "stock-controller",
+            "description": "Stock Controller"
+        },
+        {
+            "name": "ware-transaction-detail-controller",
+            "description": "Ware Transaction Detail Controller"
+        }
+    ],
+    "paths": {
+        "/clerks": {
+            "get": {
+                "tags": [
+                    "stock-clerk-controller"
+                ],
+                "summary": "findAll",
+                "operationId": "findAllUsingGET_2",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/StockClerkDto"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "stock-clerk-controller"
+                ],
+                "summary": "save",
+                "operationId": "saveUsingPOST_2",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "stockClerkDto",
+                        "description": "stockClerkDto",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/StockClerkDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/StockClerkDto"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "stock-clerk-controller"
+                ],
+                "summary": "update",
+                "operationId": "updateUsingPUT_2",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "stockClerkDto",
+                        "description": "stockClerkDto",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/StockClerkDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/StockClerkDto"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/clerks/{id}": {
+            "get": {
+                "tags": [
+                    "stock-clerk-controller"
+                ],
+                "summary": "findById",
+                "operationId": "findByIdUsingGET_2",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/StockClerkDto"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "stock-clerk-controller"
+                ],
+                "summary": "deleteById",
+                "operationId": "deleteByIdUsingDELETE_2",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/products": {
+            "get": {
+                "tags": [
+                    "product-controller"
+                ],
+                "summary": "findAll",
+                "operationId": "findAllUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ProductDto"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "product-controller"
+                ],
+                "summary": "save",
+                "operationId": "saveUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "productDto",
+                        "description": "productDto",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ProductDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ProductDto"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "product-controller"
+                ],
+                "summary": "update",
+                "operationId": "updateUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "productDto",
+                        "description": "productDto",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ProductDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ProductDto"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/products/search": {
+            "post": {
+                "tags": [
+                    "product-controller"
+                ],
+                "summary": "search",
+                "operationId": "searchUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "searchRequest",
+                        "description": "searchRequest",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/SearchRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Page«ProductDto»"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/products/{id}": {
+            "get": {
+                "tags": [
+                    "product-controller"
+                ],
+                "summary": "findById",
+                "operationId": "findByIdUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ProductDto"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "product-controller"
+                ],
+                "summary": "deleteById",
+                "operationId": "deleteByIdUsingDELETE",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/shelves": {
+            "get": {
+                "tags": [
+                    "shelf-controller"
+                ],
+                "summary": "findAll",
+                "operationId": "findAllUsingGET_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ShelfDto"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "shelf-controller"
+                ],
+                "summary": "save",
+                "operationId": "saveUsingPOST_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "shelfDto",
+                        "description": "shelfDto",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ShelfDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ShelfDto"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "shelf-controller"
+                ],
+                "summary": "update",
+                "operationId": "updateUsingPUT_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "shelfDto",
+                        "description": "shelfDto",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ShelfDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ShelfDto"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/shelves/{id}": {
+            "get": {
+                "tags": [
+                    "shelf-controller"
+                ],
+                "summary": "findById",
+                "operationId": "findByIdUsingGET_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ShelfDto"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "shelf-controller"
+                ],
+                "summary": "deleteById",
+                "operationId": "deleteByIdUsingDELETE_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/stock": {
+            "get": {
+                "tags": [
+                    "stock-controller"
+                ],
+                "summary": "findAll",
+                "operationId": "findAllUsingGET_3",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/StockDto"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/stock/search": {
+            "post": {
+                "tags": [
+                    "stock-controller"
+                ],
+                "summary": "search",
+                "operationId": "searchUsingPOST_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "searchRequest",
+                        "description": "searchRequest",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/SearchRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Page«StockDto»"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/stock/snapshot": {
+            "get": {
+                "tags": [
+                    "stock-controller"
+                ],
+                "summary": "findStockByProductAndDateTime",
+                "operationId": "findStockByProductAndDateTimeUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "productCode",
+                        "in": "query",
+                        "description": "productCode",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "description": "date",
+                        "required": true,
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/StockProjection"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/ware-transaction-details": {
+            "get": {
+                "tags": [
+                    "ware-transaction-detail-controller"
+                ],
+                "summary": "findByWareTransactionId",
+                "operationId": "findByWareTransactionIdUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "wareTransactionId",
+                        "in": "query",
+                        "description": "wareTransactionId",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/WareTransactionDetailDto"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/ware-transaction-details/{id}": {
+            "get": {
+                "tags": [
+                    "ware-transaction-detail-controller"
+                ],
+                "summary": "findById",
+                "operationId": "findByIdUsingGET_4",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/WareTransactionDetailDto"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/ware-transactions": {
+            "get": {
+                "tags": [
+                    "ware-transaction-controller"
+                ],
+                "summary": "findAll",
+                "operationId": "findAllUsingGET_4",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/WareTransactionDto"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "ware-transaction-controller"
+                ],
+                "summary": "save",
+                "operationId": "saveUsingPOST_3",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "wareTransactionDto",
+                        "description": "wareTransactionDto",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/WareTransactionDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/WareTransactionDto"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "ware-transaction-controller"
+                ],
+                "summary": "update",
+                "operationId": "updateUsingPUT_3",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "wareTransactionDto",
+                        "description": "wareTransactionDto",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/WareTransactionDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/WareTransactionDto"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/ware-transactions/{id}": {
+            "get": {
+                "tags": [
+                    "ware-transaction-controller"
+                ],
+                "summary": "findById",
+                "operationId": "findByIdUsingGET_3",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/WareTransactionDto"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "ware-transaction-controller"
+                ],
+                "summary": "deleteById",
+                "operationId": "deleteByIdUsingDELETE_3",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/warehouses": {
+            "get": {
+                "tags": [
+                    "warehouse-controller"
+                ],
+                "summary": "findAll",
+                "operationId": "findAllUsingGET_5",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/WarehouseDto"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "warehouse-controller"
+                ],
+                "summary": "save",
+                "operationId": "saveUsingPOST_4",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "warehouseDto",
+                        "description": "warehouseDto",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/WarehouseDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/WarehouseDto"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "warehouse-controller"
+                ],
+                "summary": "update",
+                "operationId": "updateUsingPUT_4",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "warehouseDto",
+                        "description": "warehouseDto",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/WarehouseDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/WarehouseDto"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/warehouses/{id}": {
+            "get": {
+                "tags": [
+                    "warehouse-controller"
+                ],
+                "summary": "findById",
+                "operationId": "findByIdUsingGET_5",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/WarehouseDto"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "warehouse-controller"
+                ],
+                "summary": "deleteById",
+                "operationId": "deleteByIdUsingDELETE_4",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Pageable": {
+            "type": "object",
+            "properties": {
+                "offset": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "pageNumber": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "pageSize": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "paged": {
+                    "type": "boolean"
+                },
+                "sort": {
+                    "$ref": "#/definitions/Sort"
+                },
+                "unpaged": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "Page«ProductDto»": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ProductDto"
+                    }
+                },
+                "empty": {
+                    "type": "boolean"
+                },
+                "first": {
+                    "type": "boolean"
+                },
+                "last": {
+                    "type": "boolean"
+                },
+                "number": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "numberOfElements": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "pageable": {
+                    "$ref": "#/definitions/Pageable"
+                },
+                "size": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "sort": {
+                    "$ref": "#/definitions/Sort"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "Page«StockDto»": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/StockDto"
+                    }
+                },
+                "empty": {
+                    "type": "boolean"
+                },
+                "first": {
+                    "type": "boolean"
+                },
+                "last": {
+                    "type": "boolean"
+                },
+                "number": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "numberOfElements": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "pageable": {
+                    "$ref": "#/definitions/Pageable"
+                },
+                "size": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "sort": {
+                    "$ref": "#/definitions/Sort"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "ProductDto": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "measurementUnit": {
+                    "type": "string",
+                    "enum": [
+                        "KG"
+                    ]
+                }
+            }
+        },
+        "SearchRequest": {
+            "type": "object",
+            "properties": {
+                "orderAsc": {
+                    "type": "boolean"
+                },
+                "orderBy": {
+                    "type": "string"
+                },
+                "pageIndex": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "pageSize": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "paginated": {
+                    "type": "boolean"
+                },
+                "searchCriteriaString": {
+                    "type": "string"
+                }
+            }
+        },
+        "ShelfDto": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "warehouseId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "Sort": {
+            "type": "object",
+            "properties": {
+                "empty": {
+                    "type": "boolean"
+                },
+                "sorted": {
+                    "type": "boolean"
+                },
+                "unsorted": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "StockClerkDto": {
+            "type": "object",
+            "properties": {
+                "firstName": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "registryNumber": {
+                    "type": "string"
+                }
+            }
+        },
+        "StockDto": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "productCode": {
+                    "type": "string"
+                },
+                "productId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "shelfCode": {
+                    "type": "string"
+                },
+                "shelfId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalQuantity": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "warehouseDescription": {
+                    "type": "string"
+                },
+                "warehouseId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "StockProjection": {
+            "type": "object",
+            "properties": {
+                "productCode": {
+                    "type": "string"
+                },
+                "shelfCode": {
+                    "type": "string"
+                },
+                "totalQuantity": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "warehouseDescription": {
+                    "type": "string"
+                }
+            }
+        },
+        "WareTransactionDetailDto": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "productId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "quantity": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "shelfId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "wareTransactionId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "WareTransactionDto": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "stockClerkId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "transactionDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "wareTransactionDetails": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/WareTransactionDetailDto"
+                    }
+                },
+                "wareTransactionType": {
+                    "type": "string",
+                    "enum": [
+                        "IMPORT",
+                        "EXPORT"
+                    ]
+                }
+            }
+        },
+        "WarehouseDto": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "shelves": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ShelfDto"
+                    }
+                }
+            }
+        }
+    }
+}

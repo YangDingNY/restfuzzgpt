@@ -15,7 +15,7 @@ services:
       - "./sql:/docker-entrypoint-initdb.d"
     networks:
       - blog-network
-  warehouse:
+  blog:
     build: 
       context: .
       dockerfile: Dockerfile

@@ -26,7 +26,7 @@ services:
     networks:
       - blog-network
     depends_on:
-      - mysql-blog
+      - mysql
 
 networks:
   blog-network:

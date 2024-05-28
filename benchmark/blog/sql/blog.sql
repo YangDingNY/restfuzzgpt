@@ -5,8 +5,8 @@ USE apitrail;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
---blog表
---blog id 内容
+-- blog表
+-- blog id 内容
 DROP TABLE IF EXISTS `blog`;
 CREATE TABLE `blog`  (
                          `id` int(11) NOT NULL AUTO_INCREMENT,

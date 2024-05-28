@@ -13,6 +13,7 @@ RUN git clone https://github.com/YangDingNY/blog.git /root/blog
 WORKDIR /root/blog
 RUN mvn clean package -DskipTests
 EXPOSE 8081
+RUN chmod +x ./start.sh
 
 # run project when creating container
-ENTRYPOINT ["java", "-jar", "target/springboot-trail-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["./start.sh"]

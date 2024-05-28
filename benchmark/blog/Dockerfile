@@ -6,10 +6,9 @@ RUN apt-get update && \
     apt-get install git -y && \
     apt-get install maven -y
 
-COPY ./start.sh /root/blog/start.sh
-
-# clone project
+# prepare project
 RUN git clone https://github.com/YangDingNY/blog.git /root/blog
+COPY ./start.sh /root/blog/start.sh
 
 # build project
 WORKDIR /root/blog

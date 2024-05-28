@@ -21,3 +21,8 @@
 1. 不能得到正确的url；
 2. 生成测试序列时找不到operationId
 3. 生成具体请求时的格式问题
+
+**5.8-5.13**
+1. 修复了operationId问题
+2. 格式化了warehouse项目的swagger
+3. （进行中）读取分析swagger文档，识别其中的baseurl，path，opertionId等信息

@@ -13,7 +13,7 @@ COPY ./start.sh /root/blog/start.sh
 # build project
 WORKDIR /root/blog
 RUN mvn clean package -DskipTests
-EXPOSE 8081
+EXPOSE 8080
 RUN chmod +x ./start.sh
 
 # run project when creating container

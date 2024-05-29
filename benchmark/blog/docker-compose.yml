@@ -1,13 +1,13 @@
 version: "3.8"
 
 services:
-  mysql:
-    image: mysql:8.0
+  mysql-blog:
+    image: mysql:8
     container_name: mysql-blog
     ports:
-      - "3306:3306"
+      - 3306:3306
     environment:
-      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_ROOT_PASSWORD=root
     volumes:
       - "./mysql/data:/var/lib/mysql"
       - "./mysql/conf.d:/etc/mysql/conf.d"
@@ -20,12 +20,16 @@ services:
       dockerfile: Dockerfile
       network: host
     container_name: blog
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-blog:3306/apitrail?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
     ports:
-      - "8080:8080"
+      - 8082:8080
     networks:
       - blog-network
     depends_on:
-      - mysql
+      - mysql-blog
 
 networks:
   blog-network:

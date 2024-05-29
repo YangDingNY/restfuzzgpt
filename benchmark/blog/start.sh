@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sleep 90
+sleep 30
 java -jar ./target/springboot-trail-0.0.1-SNAPSHOT.jar

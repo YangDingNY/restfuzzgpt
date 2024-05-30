@@ -2,3 +2,4 @@
 *.code-workspace
 .git
 target/
+container-mysql/

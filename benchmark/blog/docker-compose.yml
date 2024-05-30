@@ -7,10 +7,10 @@ services:
     ports:
       - 3306:3306
     environment:
-      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_ROOT_PASSWORD=Blog_benchmark_MySQL
     volumes:
-      - "./mysql/data:/var/lib/mysql"
-      - "./mysql/conf.d:/etc/mysql/conf.d"
+      - "./container-mysql/data:/var/lib/mysql"
+      - "./container-mysql/conf.d:/etc/mysql/conf.d"
       - "./sql:/docker-entrypoint-initdb.d"
     networks:
       - blog-network
@@ -23,7 +23,7 @@ services:
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-blog:3306/apitrail?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT&allowPublicKeyRetrieval=true
       - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_DATASOURCE_PASSWORD=Blog_benchmark_MySQL
     ports:
       - 8082:8080
     networks:

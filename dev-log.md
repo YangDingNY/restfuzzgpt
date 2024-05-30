@@ -26,3 +26,11 @@
 1. 修复了operationId问题
 2. 格式化了warehouse项目的swagger
 3. （进行中）读取分析swagger文档，识别其中的baseurl，path，opertionId等信息
+
+**5.14-5.31**
+1. blog docker 环境搭建
+2. evomaster实验环境搭建
+3. 使用tcpdump捕获http请求
+```shell
+tcpdump -i eth0 'tcp port 8080 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'
+```

@@ -13,7 +13,7 @@ services:
       - "./container-mysql/conf.d:/etc/mysql/conf.d"
       - "./sql:/docker-entrypoint-initdb.d"
     networks:
-      - blog-network
+      - network-blog
   blog:
     build: 
       context: .
@@ -27,10 +27,10 @@ services:
     ports:
       - 8082:8080
     networks:
-      - blog-network
+      - network-blog
     depends_on:
       - mysql-blog
 
 networks:
-  blog-network:
-    name: blog-network
+  network-blog:
+    name: network-blog

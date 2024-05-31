@@ -5,8 +5,9 @@
 - port: 8080
 ```shell
 cd ./cwa-verification-server
+docker network create network-cwa
 docker build -t cwa .
-docker run -d -p 8080:8080 --name cwa cwa
+docker run -it -p 8080:8080 --network network-cwa --name cwa cwa
 ```
 
 ### features-service

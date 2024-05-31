@@ -1,33 +1,39 @@
 version: "3.8"
 
 services:
-  mysql:
+  mysql-warehouse:
     image: mysql
-    container_name: mysql
+    container_name: mysql-warehouse
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: WareHouse_Benchmark_MySQL
       MYSQL_DATABASE: warehouse
     volumes:
-      - "./mysql/data:/var/lib/mysql"
-      - "./mysql/conf.d:/etc/mysql/conf.d"
-      - "./mysql/initdb.d:/docker-entrypoint-initdb.d"
+      - "./container-mysql/data:/var/lib/mysql"
+      - "./container-mysql/conf.d:/etc/mysql/conf.d"
+      - "./container-mysql/initdb.d:/docker-entrypoint-initdb.d"
     networks:
-      - warehouse-network
+      - network-warehouse
   warehouse:
     build: 
       context: .
       dockerfile: Dockerfile
       network: host
     container_name: warehouse
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-warehouse:3306/warehouse?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=WareHouse_Benchmark_MySQL
+    volumes:
+      - "./data:/root/warehouse/data"
     ports:
       - "8080:8080"
     networks:
-      - warehouse-network
+      - network-warehouse
     depends_on:
-      - mysql
+      - mysql-warehouse
 
 networks:
-  warehouse-network:
-    name: warehouse-network
+  network-warehouse:
+    name: network-warehouse

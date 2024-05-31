@@ -32,5 +32,5 @@
 2. evomaster实验环境搭建
 3. 使用tcpdump捕获http请求
 ```shell
-tcpdump -i eth0 'tcp port 8080 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'
+tcpdump -i eth0 -s 0 'tcp port 8080 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)' -w ./data/requests.pcap
 ```

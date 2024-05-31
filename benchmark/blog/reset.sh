@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-sudo rm -rf ./mysql
+sudo rm -rf ./container-mysql
 sudo docker stop blog
 sudo docker stop mysql-blog
 sudo docker rm blog

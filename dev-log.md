@@ -34,3 +34,6 @@
 ```shell
 tcpdump -i eth0 -s 0 'tcp port 8080 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)' -w ./data/requests.pcap
 ```
+
+TODO tcpdump dockerfile
+TODO jacoco dockerfile
